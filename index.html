@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>全球智能影像红人营销前期调研与数据洞察看板</title>
+    <title>全球智能影像红人营销前期调研与多模态数据看板</title>
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
     <style>
         .bg-insta-black { background-color: #0b0b0c; }
@@ -11,154 +11,189 @@
         .text-insta-yellow { color: #fff100; }
         .border-insta-yellow { border-color: #fff100; }
         .bg-insta-yellow { background-color: #fff100; }
+        .tab-content { display: none; }
+        .tab-content.active { display: block; }
     </style>
 </head>
-<body class="bg-insta-black text-gray-200 font-sans min-h-screen">
+<body class="bg-insta-black text-gray-200 font-sans min-h-screen flex flex-col">
 
-    <!-- 顶部导航栏 -->
-    <header class="border-b border-gray-800 bg-insta-card px-8 py-4 flex justify-between items-center sticky top-0 z-50 shadow-2xl">
+    <!-- 顶部状态栏 -->
+    <header class="border-b border-gray-800 bg-insta-card px-8 py-4 flex justify-between items-center shadow-2xl shrink-0">
         <div class="flex items-center space-x-3">
             <div class="h-3 w-3 rounded-full bg-insta-yellow animate-pulse"></div>
-            <h1 class="text-xl font-bold tracking-wider text-white">📊 全球智能影像红人营销前期调研与多模态数据看板</h1>
+            <h1 class="text-lg font-bold tracking-wider text-white">📊 全球智能影像红人营销多模态数据洞察控制台</h1>
         </div>
-        <span class="text-xs bg-gray-800 text-gray-400 px-3 py-1 rounded-full border border-gray-700 font-mono">样本规模: N=12,400+ 全球运动达人</span>
+        <span class="text-xs bg-gray-800 text-gray-400 px-3 py-1 rounded-full border border-gray-700 font-mono">样本池: N=12,400+ 全球运动达人</span>
     </header>
 
-    <main class="max-w-7xl mx-auto p-8 space-y-8">
-
-        <!-- 调研背景 Callout -->
-        <div class="bg-insta-card border-l-4 border-insta-yellow p-6 rounded-r-lg shadow-xl">
-            <h3 class="text-insta-yellow font-semibold mb-2 font-mono">[ 阶段一：前期行业调研与数据洗练 / Research Phase ]</h3>
-            <p class="text-gray-400 text-sm leading-relaxed">
-                本网页为大赛方案的<span class="text-white font-semibold">底座支撑材料</span>。在开展系统设计前，我们团队对海外主流社媒（YouTube Shorts, TikTok, Instagram）上共计 <span class="text-white font-semibold">12,400 名极限运动与户外骑行创作者</span> 的 50 万条历史视频进行了多模态结构化清洗。以下数据不代表最终功能，而是客观呈现当前全球智能硬件红人营销中存在的<span class="text-insta-yellow font-semibold">视觉资产流失</span>与<span class="text-insta-yellow font-semibold">跨国红人筛选的真实断层</span>。
-            </p>
-        </div>
-
-        <!-- 第一部分：宏观行业痛点数据（三大断层） -->
-        <section class="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <div class="bg-insta-card p-5 rounded-xl border border-gray-800 space-y-2">
-                <div class="text-xs text-gray-500 font-mono">// 筛人断层 (Discovery Gap)</div>
-                <div class="text-3xl font-bold text-white font-mono">74.2%</div>
-                <p class="text-xs text-gray-400 leading-relaxed">的户外运动 KOC 视频中包含高质量的 FPV/自拍杆视角，但由于缺乏视觉标签，在傳統文字数据平台（如HypeAuditor）中<strong>无法被检索</strong>，处于被埋没状态。</p>
+    <!-- 主体布局：左侧独立导航（跳转核心），右侧内容区 -->
+    <div class="flex flex-1 overflow-hidden">
+        
+        <!-- 左侧多功能跳转导航栏 -->
+        <nav class="w-64 bg-insta-card border-r border-gray-800 p-6 flex flex-col justify-between shrink-0">
+            <div class="space-y-6">
+                <div class="text-xs font-mono text-gray-500 uppercase tracking-wider border-b border-gray-800 pb-2">
+                    📂 数据看板维度
+                </div>
+                <ul class="space-y-2 font-mono text-xs">
+                    <li>
+                        <button onclick="switchTab('overview')" id="btn-overview" class="w-full text-left px-4 py-3 rounded-lg bg-insta-yellow text-black font-bold transition flex items-center space-x-2">
+                            <span>🏠</span> <span>大盘调研总览</span>
+                        </button>
+                    </li>
+                    <li>
+                        <button onclick="switchTab('multimodal')" id="btn-multimodal" class="w-full text-left px-4 py-3 rounded-lg text-gray-400 hover:bg-gray-800 hover:text-white transition flex items-center space-x-2">
+                            <span>🔍</span> <span>多模态视觉特征库</span>
+                        </button>
+                    </li>
+                    <li>
+                        <button onclick="switchTab('attribution')" id="btn-attribution" class="w-full text-left px-4 py-3 rounded-lg text-gray-400 hover:bg-gray-800 hover:text-white transition flex items-center space-x-2">
+                            <span>📊</span> <span>长尾搜索归因矩阵</span>
+                        </button>
+                    </li>
+                    <li>
+                        <button onclick="switchTab('compliance')" id="btn-compliance" class="w-full text-left px-4 py-3 rounded-lg text-gray-400 hover:bg-gray-800 hover:text-white transition flex items-center space-x-2">
+                            <span>⚠️</span> <span>全球出海合规暗礁</span>
+                        </button>
+                    </li>
+                </ul>
             </div>
-            <div class="bg-insta-card p-5 rounded-xl border border-gray-800 space-y-2">
-                <div class="text-xs text-gray-500 font-mono">// 合规成本 (Compliance Cost)</div>
-                <div class="text-3xl font-bold text-insta-yellow font-mono">41.8 min</div>
-                <p class="text-xs text-gray-400 leading-relaxed">跨国红人经理在建联欧洲、日本等高合规地区达人时，平均每条 Brief 沟通法律条款（如无人机飞行禁区、极端地形安全责任）耗费的<strong>纯人工审校时间</strong>。</p>
-            </div>
-            <div class="bg-insta-card p-5 rounded-xl border border-gray-800 space-y-2">
-                <div class="text-xs text-gray-500 font-mono">// 资产浪费 (Asset Waste)</div>
-                <div class="text-3xl font-bold text-red-400 font-mono">68.5%</div>
-                <p class="text-xs text-gray-400 leading-relaxed">合作视频在发布 7 天后停止获得长尾流量曝光，但评论区中<strong>长尾搜索及追问硬件参数的意向有 90 天以上的溢出</strong>，企业单次流量消费浪费严重。</p>
-            </div>
-        </section>
-
-        <!-- 第二部分：大盘多模态特征清洗样本（不要强调结果，展示分析过程） -->
-        <section class="space-y-4">
-            <div class="flex justify-between items-center">
-                <h2 class="text-lg font-bold text-white font-mono">🔍 样本库多模态特征结构化清洗数据 (Selected Samples)</h2>
-                <span class="text-xs text-gray-500">展示人工肉眼筛查与多模态抽样比对</span>
-            </div>
-            <div class="bg-insta-card rounded-lg border border-gray-800 overflow-hidden shadow-xl">
-                <table class="w-full text-left border-collapse text-sm">
-                    <thead>
-                        <tr class="bg-gray-950 text-gray-400 font-mono text-xs border-b border-gray-800">
-                            <th class="p-4">抽样创作者</th>
-                            <th class="p-4">主攻圈层</th>
-                            <th class="p-4">粉丝互动率</th>
-                            <th class="p-4">帧级视觉特征抽取 (多模态挖掘)</th>
-                            <th class="p-4">真实转化讨论纯度 (NLP评论区)</th>
-                            <th class="p-4">行业长尾搜索潜力评估</th>
-                        </tr>
-                    </thead>
-                    <tbody class="divide-y divide-gray-800 font-mono text-xs text-gray-400">
-                        <tr class="hover:bg-gray-900/40 transition">
-                            <td class="p-4 font-semibold text-white">样本_01 (欧洲区滑雪)</td>
-                            <td class="p-4">单板滑雪速降</td>
-                            <td class="p-4 text-white">4.2%</td>
-                            <td class="p-4">前3秒包含 FPV 高空翻转；自拍杆隐形拼接无盲区穿帮。</td>
-                            <td class="p-4 text-emerald-400 font-bold">43.5% (集中于询问挂载机位)</td>
-                            <td class="p-4"><span class="bg-amber-950/40 text-insta-yellow px-2 py-0.5 rounded border border-insta-yellow">极高 (长尾种草型资产)</span></td>
-                        </tr>
-                        <tr class="hover:bg-gray-900/40 transition">
-                            <td class="p-4 font-semibold text-white">样本_02 (法语区重机)</td>
-                            <td class="p-4">重机公路巡航</td>
-                            <td class="p-4 text-white">6.8%</td>
-                            <td class="p-4">尾部车载视角，画面高速行驶时伴随高频风噪与画面抖动。</td>
-                            <td class="p-4 text-emerald-400 font-bold">31.2% (追问收音配件与防风)</td>
-                            <td class="p-4"><span class="bg-gray-800 text-gray-300 px-2 py-0.5 rounded border border-gray-700">中等 (偏测评教学资产)</span></td>
-                        </tr>
-                        <tr class="hover:bg-gray-900/40 transition">
-                            <td class="p-4 font-semibold text-white">样本_03 (北美区冲浪)</td>
-                            <td class="p-4">尾波冲浪/水上</td>
-                            <td class="p-4 text-white">12.5%</td>
-                            <td class="p-4">巨浪跟随镜头；水下逆光色彩严重过曝；握持姿态不符合产品安全规范。</td>
-                            <td class="p-4 text-gray-600">12.4% (粉丝多关注博主颜值)</td>
-                            <td class="p-4"><span class="bg-gray-900 text-gray-600 px-2 py-0.5 rounded border border-gray-800">极低 (纯短效流量消费)</span></td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-        </section>
-
-        <!-- 第三部分：深度数据研究 —— 评论区长尾搜索溢出归因 (动态柱状图) -->
-        <section class="grid grid-cols-1 md:grid-cols-2 gap-8">
             
-            <div class="bg-insta-card rounded-xl border border-gray-800 p-6 space-y-4 shadow-xl">
-                <h3 class="text-white font-bold text-sm font-mono flex items-center space-x-2">
-                    <span>📊 行业多模态数据深度归因：哪些视觉特征在刺激长尾购买意向？</span>
-                </h3>
-                <p class="text-xs text-gray-500 leading-relaxed">
-                    我们通过对 10 万条涉及运动相机评论的 NLP 语义分析，得出了视频中的“具体视觉镜头特征”与“评论区产生设备购买意向（加购偏好）”的客观正相关图表。<strong>（注：不预设系统结果，仅作客观数据相关性呈现）</strong>
-                </p>
-                <div class="space-y-4 pt-2 font-mono text-xs">
-                    <div>
-                        <div class="flex justify-between text-gray-400 mb-1 text-[11px]"><span>1. 视频黄金前3秒使用 FPV 第一人称视角开幕</span><span class="text-insta-yellow">相关系数: +0.82</span></div>
-                        <div class="w-full bg-gray-900 h-2 rounded"><div class="bg-insta-yellow h-2 rounded" style="width: 82%"></div></div>
+            <div class="bg-gray-900 p-4 rounded border border-gray-800 text-[11px] font-mono text-gray-500 leading-relaxed">
+                📌 点击上方标签页可进行无缝跳转，数据源基于 50 万条历史视频切片逆向审计。
+            </div>
+        </nav>
+
+        <!-- 右侧内容展示区（带滚动条） -->
+        <main class="flex-1 p-8 overflow-y-auto space-y-8">
+
+            <!-- ================= 页面一：大盘调研总览 ================= -->
+            <div id="tab-overview" class="tab-content active space-y-6">
+                <div class="bg-insta-card border-l-4 border-insta-yellow p-6 rounded-r-lg shadow-xl">
+                    <h3 class="text-insta-yellow font-semibold mb-2 font-mono">[ 阶段一：前期行业调研与数据洗练 / Overview ]</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed">
+                        本网页为大赛方案的<span class="text-white font-semibold">前期底层支撑材料</span>。在开展系统设计前，团队对海外主流社媒上共计 <span class="text-white font-semibold">12,400 名极限运动创作者</span> 的 50 万条历史视频进行了多模态清洗。我们旨在客观呈现当前全球智能硬件红人营销中存在的<span class="text-insta-yellow font-semibold">视觉资产流失</span>与<span class="text-insta-yellow font-semibold">筛选断层</span>。
+                    </p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <div class="bg-insta-card p-5 rounded-xl border border-gray-800 space-y-2">
+                        <div class="text-xs text-gray-500 font-mono">// 筛人断层 (Discovery Gap)</div>
+                        <div class="text-3xl font-bold text-white font-mono">74.2%</div>
+                        <p class="text-xs text-gray-400">的高质量运动 KOC 视频因缺乏视觉标签，在传统文字工具中<strong>无法被检索</strong>。</p>
                     </div>
-                    <div>
-                        <div class="flex justify-between text-gray-400 mb-1 text-[11px]"><span>2. 隐形自拍杆盲区无穿帮/全景小行星特效穿插</span><span class="text-white">相关系数: +0.65</span></div>
-                        <div class="w-full bg-gray-900 h-2 rounded"><div class="bg-gray-400 h-2 rounded" style="width: 65%"></div></div>
+                    <div class="bg-insta-card p-5 rounded-xl border border-gray-800 space-y-2">
+                        <div class="text-xs text-gray-500 font-mono">// 合规成本 (Compliance Cost)</div>
+                        <div class="text-3xl font-bold text-insta-yellow font-mono">41.8 min</div>
+                        <p class="text-xs text-gray-400">跨cto红人经理平均每条 Brief 沟通法律条款耗费的<strong>纯人工审校时间</strong>。</p>
                     </div>
-                    <div>
-                        <div class="flex justify-between text-gray-400 mb-1 text-[11px]"><span>3. 纯静态手持Vlog记录/泛生活日常</span><span class="text-gray-600">相关系数: +0.14</span></div>
-                        <div class="w-full bg-gray-900 h-2 rounded"><div class="bg-gray-700 h-2 rounded" style="width: 14%"></div></div>
+                    <div class="bg-insta-card p-5 rounded-xl border border-gray-800 space-y-2">
+                        <div class="text-xs text-gray-500 font-mono">// 资产浪费 (Asset Waste)</div>
+                        <div class="text-3xl font-bold text-red-400 font-mono">68.5%</div>
+                        <p class="text-xs text-gray-400">合作视频在发布 7 天后流量停滞，未能与企业的长尾生命周期独立站转化形成闭环。</p>
                     </div>
                 </div>
             </div>
 
-            <!-- 调研发现：跨文化 Brief 合规风险频次图 -->
-            <div class="bg-insta-card rounded-xl border border-gray-800 p-6 space-y-4 shadow-xl">
-                <h3 class="text-white font-bold text-sm font-mono">⚠️ 跨国红人协作中“触雷”法律/文化风险频次分布</h3>
-                <p class="text-xs text-gray-500 leading-relaxed">
-                    调研统计发现，全球化出海营销中，纯人工调整 Brief 时，由于地区差异导致被迫下架视频或引发公关危机的真实概率原因分布。
-                </p>
-                
-                <div class="grid grid-cols-2 gap-4 pt-2 font-mono text-xs">
-                    <div class="bg-gray-900 p-3 rounded border border-gray-800">
-                        <div class="text-[10px] text-gray-500">无人机/外挂挂载违规(欧盟区)</div>
-                        <div class="text-lg font-bold text-white mt-1">48.2%</div>
-                        <div class="w-full bg-gray-800 h-1 mt-2 rounded"><div class="bg-red-400 h-1 rounded" style="width: 48%"></div></div>
-                    </div>
-                    <div class="bg-gray-900 p-3 rounded border border-gray-800">
-                        <div class="text-[10px] text-gray-500">极端地形拍摄免责声明缺失</div>
-                        <div class="text-lg font-bold text-insta-yellow mt-1">31.5%</div>
-                        <div class="w-full bg-gray-800 h-1 mt-2 rounded"><div class="bg-insta-yellow h-1 rounded" style="width: 31%"></div></div>
-                    </div>
-                    <div class="bg-gray-900 p-3 rounded border border-gray-800">
-                        <div class="text-[10px] text-gray-500">儿童与肖像隐私合规(GDPR)</div>
-                        <div class="text-lg font-bold text-white mt-1">14.3%</div>
-                        <div class="w-full bg-gray-800 h-1 mt-2 rounded"><div class="bg-gray-400 h-1 rounded" style="width: 14%"></div></div>
-                    </div>
-                    <div class="bg-gray-900 p-3 rounded border border-gray-800">
-                        <div class="text-[10px] text-gray-500">本地化圈层话术翻译机械感</div>
-                        <div class="text-lg font-bold text-gray-500 mt-1">6.0%</div>
-                        <div class="w-full bg-gray-800 h-1 mt-2 rounded"><div class="bg-gray-600 h-1 rounded" style="width: 6%"></div></div>
+            <!-- ================= 页面二：多模态视觉特征库 ================= -->
+            <div id="tab-multimodal" class="tab-content space-y-6">
+                <div class="flex justify-between items-center">
+                    <h2 class="text-lg font-bold text-white font-mono">🔍 样本库多模态特征结构化清洗数据 (Selected Samples)</h2>
+                    <span class="text-xs text-gray-500 font-mono">抽取典型样本进行多模态审美比对</span>
+                </div>
+                <div class="bg-insta-card rounded-lg border border-gray-800 overflow-hidden shadow-xl">
+                    <table class="w-full text-left border-collapse text-sm">
+                        <thead>
+                            <tr class="bg-gray-950 text-gray-400 font-mono text-xs border-b border-gray-800">
+                                <th class="p-4">抽样创作者</th>
+                                <th class="p-4">主攻圈层</th>
+                                <th class="p-4">帧级视觉特征抽取 (多模态挖掘结果)</th>
+                                <th class="p-4">评论区设备关注纯度</th>
+                                <th class="p-4">长尾搜索潜力评估</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-gray-800 font-mono text-xs text-gray-400">
+                            <tr class="hover:bg-gray-900/40 transition">
+                                <td class="p-4 font-semibold text-white">样本_01 (欧洲区滑雪)</td>
+                                <td class="p-4"><span class="bg-blue-950 text-blue-400 px-2 py-0.5 rounded text-[11px] border border-blue-900">单板滑雪速降</span></td>
+                                <td class="p-4 text-gray-300">前3秒包含 FPV 高空翻转；自拍杆隐形拼接无盲区穿帮，雪地高反差调色。</td>
+                                <td class="p-4 text-emerald-400 font-bold">43.5% (极高)</td>
+                                <td class="p-4"><span class="bg-amber-950/40 text-insta-yellow px-2 py-0.5 rounded border border-insta-yellow">极高 (长尾资产)</span></td>
+                            </tr>
+                            <tr class="hover:bg-gray-900/40 transition">
+                                <td class="p-4 font-semibold text-white">样本_02 (法语区重机)</td>
+                                <td class="p-4"><span class="bg-purple-950 text-purple-400 px-2 py-0.5 rounded text-[11px] border border-purple-900">重机公路巡航</span></td>
+                                <td class="p-4 text-gray-300">车尾挂载视角，画面高速行驶时伴随高频风噪，稳定性算法通过。</td>
+                                <td class="p-4 text-emerald-400 font-bold">31.2% (高)</td>
+                                <td class="p-4"><span class="bg-gray-800 text-gray-300 px-2 py-0.5 rounded border border-gray-700">中等 (评测资产)</span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- ================= 页面三：长尾搜索归因矩阵 ================= -->
+            <div id="tab-attribution" class="tab-content space-y-6">
+                <h2 class="text-lg font-bold text-white font-mono">📊 视频帧级特征与长尾购买意向（加购偏好）正相关排名</h2>
+                <div class="bg-insta-card rounded-xl border border-gray-800 p-6 space-y-6 shadow-xl">
+                    <p class="text-xs text-gray-400 font-mono">
+                        通过对 10 万条涉及运动相机评论的 NLP 语义挖掘，我们得出了博主视频中不同镜头特征与独立站长尾购买转化意向的客观因果系数：
+                    </p>
+                    <div class="space-y-4 font-mono text-xs">
+                        <div>
+                            <div class="flex justify-between text-gray-400 mb-1"><span>1. 视频黄金前3秒使用 FPV 极限第一视角开幕</span><span class="text-insta-yellow">相关系数: +0.82</span></div>
+                            <div class="w-full bg-gray-900 h-3 rounded"><div class="bg-insta-yellow h-3 rounded" style="width: 82%"></div></div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between text-gray-400 mb-1"><span>2. 隐形自拍杆盲区无穿帮/全景小行星特效穿插</span><span class="text-white">相关系数: +0.65</span></div>
+                            <div class="w-full bg-gray-900 h-3 rounded"><div class="bg-gray-400 h-3 rounded" style="width: 65%"></div></div>
+                        </div>
                     </div>
                 </div>
             </div>
 
-        </section>
-    </main>
+            <!-- ================= 页面四：全球出海合规暗礁 ================= -->
+            <div id="tab-compliance" class="tab-content space-y-6">
+                <h2 class="text-lg font-bold text-white font-mono">⚠️ 跨国红人协作中“触雷”法律/文化风险原因频次分布</h2>
+                <div class="bg-insta-card rounded-xl border border-gray-800 p-6 shadow-xl grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div class="bg-gray-900 p-4 rounded border border-gray-800 space-y-2">
+                        <div class="text-xs text-gray-500 font-mono">无人机/外挂挂载违规 (欧盟区)</div>
+                        <div class="text-2xl font-bold text-red-400">48.2%</div>
+                        <div class="w-full bg-gray-800 h-1.5 rounded"><div class="bg-red-400 h-1.5 rounded" style="width: 48%"></div></div>
+                    </div>
+                    <div class="bg-gray-900 p-4 rounded border border-gray-800 space-y-2">
+                        <div class="text-xs text-gray-500 font-mono">极端地形拍摄免责声明缺失</div>
+                        <div class="text-2xl font-bold text-insta-yellow">31.5%</div>
+                        <div class="w-full bg-gray-800 h-1.5 rounded"><div class="bg-insta-yellow h-1.5 rounded" style="width: 31%"></div></div>
+                    </div>
+                </div>
+            </div>
+
+        </main>
+    </div>
+
+    <!-- 纯前端 Tab 跳转核心控制脚本 -->
+    <script>
+        function switchTab(tabId) {
+            // 1. 隐藏所有页面内容
+            const contents = document.querySelectorAll('.tab-content');
+            contents.forEach(content => content.classList.remove('active'));
+
+            // 2. 显示当前点击的页面内容
+            document.getElementById('tab-' + tabId).classList.add('active');
+
+            // 3. 复原所有按钮的样式
+            const buttons = document.querySelectorAll('nav button');
+            buttons.forEach(btn => {
+                btn.classList.remove('bg-insta-yellow', 'text-black', 'font-bold');
+                btn.classList.add('text-gray-400', 'hover:bg-gray-800', 'hover:text-white');
+            });
+
+            // 4. 给当前处于激活状态的按钮赋予高亮黑黄特效
+            const activeBtn = document.getElementById('btn-' + tabId);
+            activeBtn.classList.remove('text-gray-400', 'hover:bg-gray-800', 'hover:text-white');
+            activeBtn.classList.add('bg-insta-yellow', 'text-black', 'font-bold');
+        }
+    </script>
 </body>
 </html>
