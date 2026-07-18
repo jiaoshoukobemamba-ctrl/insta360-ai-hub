@@ -3,125 +3,248 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Insta360 全球达人智能营销与裂变中心</title>
+    <title>Insta360 IE-2.0 全球达人智能营销与裂变中心</title>
     <!-- 引入 Tailwind CSS 用于快速美化排版 -->
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
     <style>
-        /* 影石标准视觉VI：深邃黑与极客黄 */
         .bg-insta-black { background-color: #0b0b0c; }
         .bg-insta-card { background-color: #161618; }
         .text-insta-yellow { color: #fff100; }
         .border-insta-yellow { border-color: #fff100; }
         .bg-insta-yellow { background-color: #fff100; }
+        .bg-insta-gray { background-color: #242426; }
     </style>
 </head>
 <body class="bg-insta-black text-gray-200 font-sans min-h-screen">
 
-    <!-- 顶部导航栏 -->
-    <header class="border-b border-gray-800 bg-insta-card px-8 py-4 flex justify-between items-center">
+    <!-- 顶部状态栏与导航 -->
+    <header class="border-b border-gray-800 bg-insta-card px-8 py-4 flex justify-between items-center sticky top-0 z-50 shadow-2xl">
         <div class="flex items-center space-x-3">
             <div class="h-3 w-3 rounded-full bg-insta-yellow animate-pulse"></div>
-            <h1 class="text-xl font-bold tracking-wider text-white">⚡ Insta360 全球达人智能营销与裂变中心</h1>
+            <h1 class="text-xl font-bold tracking-wider text-white">⚡ Insta360 AI-Driven Influencer Engine <span class="text-insta-yellow">IE-2.0</span></h1>
         </div>
-        <span class="text-xs bg-gray-800 text-gray-400 px-3 py-1 rounded-full border border-gray-700 font-mono">AI-Driven Engine v2.0</span>
+        <div class="flex items-center space-x-4 text-xs font-mono">
+            <span class="bg-gray-800 text-emerald-400 px-2 py-1 rounded border border-gray-700">● 算法引擎: 运行中</span>
+            <span class="bg-gray-800 text-gray-400 px-2 py-1 rounded border border-gray-700">API 吞吐量: 4.2k/min</span>
+        </div>
     </header>
 
     <main class="max-w-7xl mx-auto p-8 space-y-8">
 
-        <!-- 项目总览 Callout -->
-        <div class="bg-insta-card border-l-4 border-insta-yellow p-6 rounded-r-lg shadow-lg">
-            <h3 class="text-insta-yellow font-semibold mb-2 font-mono">[ 系统定位 / System Manifesto ]</h3>
-            <p class="text-gray-400 text-sm leading-relaxed">
-                本决策 Hub 专为影石全球营销节奏打造。深度融合<span class="text-white font-medium">多模态视觉大模型</span>与<span class="text-white font-medium"> NLP 圈层文本挖掘</span>，跳出传统依靠粉丝量找人的局限，将极限运动内容转化为标准化视觉资产，实现跨文化裂变与长尾搜索归因，将红人营销升级为品牌可持续增值的数字资产放大器。
-            </p>
-        </div>
-
-        <!-- 模块一：达人多模态解析看板 -->
-        <section class="space-y-4">
-            <h2 class="text-lg font-bold text-white flex items-center space-x-2">
-                <span>🔍 模块一：达人多模态视觉解析与精准匹配</span>
-            </h2>
-            <div class="bg-insta-card rounded-lg border border-gray-800 overflow-hidden shadow-xl">
-                <table class="w-full text-left border-collapse text-sm">
-                    <thead>
-                        <tr class="bg-gray-900 text-gray-400 font-mono border-b border-gray-800">
-                            <th class="p-4">达人账号</th>
-                            <th class="p-4">核心场景 (CV识别)</th>
-                            <th class="p-4">视觉得分</th>
-                            <th class="p-4">AI 提取核心标签 (Multimodal Tags)</th>
-                            <th class="p-4">评论区问询率 (NLP)</th>
-                            <th class="p-4">匹配度</th>
-                        </tr>
-                    </thead>
-                    <tbody class="divide-y divide-gray-800">
-                        <tr class="hover:bg-gray-900/50 transition">
-                            <td class="p-4 font-semibold text-white">@SkiMax_Ger</td>
-                            <td class="p-4"><span class="bg-blue-950 text-blue-400 px-2 py-0.5 rounded text-xs border border-blue-900">单板滑雪 (高级)</span></td>
-                            <td class="p-4 font-mono text-insta-yellow font-bold">9.2 / 10</td>
-                            <td class="p-4 text-gray-400 font-mono text-xs">FPV第一人称, 高空翻转, 自拍杆无穿帮</td>
-                            <td class="p-4 font-mono text-emerald-400">43.5%</td>
-                            <td class="p-4"><span class="bg-amber-950 text-insta-yellow px-2 py-0.5 rounded text-xs font-bold border border-insta-yellow">95.2% 推荐</span></td>
-                        </tr>
-                        <tr class="hover:bg-gray-900/50 transition">
-                            <td class="p-4 font-semibold text-white">@MotoVlog_FR</td>
-                            <td class="p-4"><span class="bg-purple-950 text-purple-400 px-2 py-0.5 rounded text-xs border border-purple-900">重机跑山 (中级)</span></td>
-                            <td class="p-4 font-mono text-insta-yellow font-bold">8.8 / 10</td>
-                            <td class="p-4 text-gray-400 font-mono text-xs">车尾挂载视角, 弯道压膝, 剪辑节奏卡点</td>
-                            <td class="p-4 font-mono text-emerald-400">31.2%</td>
-                            <td class="p-4"><span class="bg-gray-800 text-gray-300 px-2 py-0.5 rounded text-xs font-bold">88.5% 建联</span></td>
-                        </tr>
-                    </tbody>
-                </table>
+        <!-- 战略定位区 -->
+        <div class="bg-insta-card border-l-4 border-insta-yellow p-6 rounded-r-lg shadow-xl flex justify-between items-start">
+            <div class="space-y-2 max-w-4xl">
+                <h3 class="text-insta-yellow font-semibold font-mono text-sm">[ 系统底层逻辑 / System Manifesto ]</h3>
+                <p class="text-gray-400 text-sm leading-relaxed">
+                    本决策控制台深度集成了 <span class="text-white font-semibold">Open-CLIP 多模态视觉双塔模型</span> 与 <span class="text-white font-semibold">RAG 架构的跨文化大模型 Agent</span>。通过将博主的转场节奏、FPV视角熟练度及自拍杆隐藏合规性进行“帧级向量化解析”，彻底解决全球化投放中内容审美难量化、跨国协作风险高的痛点。
+                </p>
             </div>
-        </section>
+            <a href="#metrics" class="bg-insta-yellow text-black font-bold text-xs px-4 py-2 rounded uppercase tracking-wider hover:bg-yellow-400 transition font-mono shadow-md hidden md:block">查看归因模型</a>
+        </div>
 
-        <!-- 模块二与模块三并排布局 -->
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <!-- 模块二：AI 跨文化 Brief 生成 -->
-            <section class="space-y-4">
-                <h2 class="text-lg font-bold text-white">📝 模块二：AI 跨文化创意共创预演</h2>
-                <div class="bg-insta-card rounded-lg border border-gray-800 p-6 space-y-4 shadow-xl">
-                    <div class="flex space-x-2">
-                        <input type="text" value="@SkiMax_Ger (德国区滑雪KOC)" class="bg-gray-900 border border-gray-700 rounded px-3 py-2 text-sm w-full text-gray-300 focus:outline-none focus:border-insta-yellow" readonly>
-                        <button class="bg-insta-yellow text-black font-bold px-4 py-2 rounded text-sm hover:bg-yellow-400 transition cursor-not-allowed">策略已生成</button>
+        <!-- 核心功能区域：左控制面板，右结果输出 -->
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+            
+            <!-- 左侧：AI 智能检索与多模态控制台 (全新交互) -->
+            <div class="lg:col-span-1 bg-insta-card p-6 rounded-xl border border-gray-800 shadow-xl space-y-6">
+                <div class="border-b border-gray-800 pb-3">
+                    <h3 class="text-white font-bold text-base flex items-center space-x-2">
+                        <span>⚙️ AI 多模态多特征控制台</span>
+                    </h3>
+                </div>
+
+                <!-- 特征筛选 -->
+                <div class="space-y-3">
+                    <label class="text-xs font-mono text-gray-400 block">// 视觉特征 Embedding 匹配</label>
+                    <div class="grid grid-cols-2 gap-2 text-xs">
+                        <label class="flex items-center space-x-2 bg-gray-900 p-2 rounded border border-gray-800 cursor-pointer hover:border-insta-yellow">
+                            <input type="checkbox" checked class="accent-amber-400"> <span class="text-gray-300">FPV 第一视角</span>
+                        </label>
+                        <label class="flex items-center space-x-2 bg-gray-900 p-2 rounded border border-gray-800 cursor-pointer hover:border-insta-yellow">
+                            <input type="checkbox" checked class="accent-amber-400"> <span class="text-gray-300">360°全景特技</span>
+                        </label>
+                        <label class="flex items-center space-x-2 bg-gray-900 p-2 rounded border border-gray-800 cursor-pointer hover:border-insta-yellow">
+                            <input type="checkbox" class="accent-amber-400"> <span class="text-gray-300">夜景/低光防噪</span>
+                        </label>
+                        <label class="flex items-center space-x-2 bg-gray-900 p-2 rounded border border-gray-800 cursor-pointer hover:border-insta-yellow">
+                            <input type="checkbox" checked class="accent-amber-400"> <span class="text-gray-300">自拍杆完美隐形</span>
+                        </label>
                     </div>
-                    <div class="bg-gray-900 rounded p-4 border border-gray-800 font-mono text-xs space-y-2 leading-relaxed">
-                        <p class="text-insta-yellow font-semibold">// 针对德国雪友的定制化 Brief 方案</p>
-                        <p class="text-gray-500">1. 圈层话术本地化:</p>
-                        <p class="text-gray-300 pl-4">自动放弃宽泛词汇，脚本调整为德语区硬核雪友原生专业词汇（如 Tiefschnee 野雪/粉雪）。</p>
-                        <p class="text-gray-500">2. 合规与免责拦截:</p>
-                        <p class="text-gray-300 pl-4">强制加入：禁止在未授权区域使用延长杆，相机挂载须符合滑雪场安全绳规范。</p>
+                </div>
+
+                <!-- 运动圈层细分 -->
+                <div class="space-y-2">
+                    <label class="text-xs font-mono text-gray-400 block">// 场景与装备 CV 智能识别</label>
+                    <select id="sceneSelect" onchange="switchBrief()" class="w-full bg-gray-900 border border-gray-700 rounded p-2 text-sm text-gray-300 focus:outline-none focus:border-insta-yellow font-mono">
+                        <option value="ski">单板滑雪/冰雪运动 (Snowboarding)</option>
+                        <option value="moto">重机公路骑行 (MotoVlog)</option>
+                        <option value="surf">水上运动/冲浪 (Surfing)</option>
+                    </select>
+                </div>
+
+                <!-- 阈值调整 -->
+                <div class="space-y-2">
+                    <div class="flex justify-between text-xs font-mono text-gray-400">
+                        <span>// 圈层互动纯度阈值 (NLP)</span>
+                        <span class="text-insta-yellow">>&nbsp;30%</span>
+                    </div>
+                    <input type="range" min="10" max="90" value="30" class="w-full accent-amber-400 bg-gray-800 rounded-lg appearance-none h-1">
+                </div>
+
+                <!-- 提示框 -->
+                <div class="bg-gray-900/60 border border-gray-800 rounded p-4 text-xs text-gray-500 leading-relaxed font-mono">
+                    💡 <strong>动态测试提示：</strong> 更改上方的“场景与装备识别”下拉菜单，右侧模块二的“AI 跨文化 Brief 智能生成”将会联动切换，模拟大模型 Agent 的生成过程。
+                </div>
+            </div>
+
+            <!-- 右侧：模块一核心筛选看板 -->
+            <div class="lg:col-span-2 bg-insta-card rounded-xl border border-gray-800 overflow-hidden shadow-xl flex flex-col justify-between">
+                <div class="p-6 border-b border-gray-800 bg-gray-900/40">
+                    <h3 class="text-white font-bold text-base font-mono">🔍 候选池实时视觉特征与重合度分析</h3>
+                </div>
+                <div class="overflow-x-auto grow">
+                    <table class="w-full text-left border-collapse text-sm">
+                        <thead>
+                            <tr class="bg-gray-950 text-gray-400 font-mono text-xs border-b border-gray-800">
+                                <th class="p-4">达人账号</th>
+                                <th class="p-4">AI 场景标签</th>
+                                <th class="p-4">视觉审美度</th>
+                                <th class="p-4">评论区设备关注度</th>
+                                <th class="p-4">系统匹配度得分</th>
+                                <th class="p-4">当前生命周期</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-gray-800 font-mono text-xs">
+                            <tr class="hover:bg-gray-900/40 transition">
+                                <td class="p-4 font-semibold text-white">@SkiMax_Ger</td>
+                                <td class="p-4"><span class="bg-blue-950 text-blue-400 px-2 py-0.5 rounded border border-blue-900">滑雪 / 坡面障碍</span></td>
+                                <td class="p-4 text-insta-yellow font-bold">9.2 / 10</td>
+                                <td class="p-4 text-emerald-400">43.5% (极高)</td>
+                                <td class="p-4 text-white font-bold">95.2%</td>
+                                <td class="p-4"><span class="text-amber-400 bg-amber-950/40 px-2 py-0.5 rounded border border-amber-900">第一轮盲测样机</span></td>
+                            </tr>
+                            <tr class="hover:bg-gray-900/40 transition">
+                                <td class="p-4 font-semibold text-white">@MotoVlog_FR</td>
+                                <td class="p-4"><span class="bg-purple-950 text-purple-400 px-2 py-0.5 rounded border border-purple-900">重机 / 公路跑山</span></td>
+                                <td class="p-4 text-insta-yellow font-bold">8.8 / 10</td>
+                                <td class="p-4 text-emerald-400">31.2% (高)</td>
+                                <td class="p-4 text-white font-bold">88.5%</td>
+                                <td class="p-4"><span class="text-blue-400 bg-blue-950/40 px-2 py-0.5 rounded border border-blue-900">Brief 共创中</span></td>
+                            </tr>
+                            <tr class="hover:bg-gray-900/40 transition">
+                                <td class="p-4 font-semibold text-white">@SurfVibe_US</td>
+                                <td class="p-4"><span class="bg-teal-950 text-teal-400 px-2 py-0.5 rounded border border-teal-900">冲浪 / 尾波冲浪</span></td>
+                                <td class="p-4 text-insta-yellow font-bold">8.5 / 10</td>
+                                <td class="p-4 text-gray-500">12.4% (一般)</td>
+                                <td class="p-4 text-gray-500">71.0%</td>
+                                <td class="p-4"><span class="text-gray-400 bg-gray-800 px-2 py-0.5 rounded border border-gray-700">常规资产储备</span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <!-- 下方双模联动：跨文化共创与数据归因 -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            
+            <!-- 模块二：AI 跨文化创意共创预演 (增加动态联动功能) -->
+            <section class="space-y-4">
+                <h2 class="text-lg font-bold text-white flex items-center space-x-2">
+                    <span class="h-2 w-2 rounded-full bg-insta-yellow"></span>
+                    <span>📝 模块二：AI 跨文化创意共创与合规网关 (RAG Playback)</span>
+                </h2>
+                <div class="bg-insta-card rounded-lg border border-gray-800 p-6 space-y-4 shadow-xl">
+                    <div class="bg-gray-900 rounded p-5 border border-gray-800 font-mono text-xs space-y-4 min-h-[220px]">
+                        <div id="briefContent">
+                            <p class="text-insta-yellow font-semibold">// 针对德国雪友的定制化 Brief 方案 (@SkiMax_Ger)</p>
+                            <div class="mt-3 space-y-2">
+                                <p class="text-gray-500">[1] 圈层话术本地化:</p>
+                                <p class="text-gray-300 pl-4">已调取阿尔卑斯滑雪社群语料库，放弃宽泛词汇，自动调整为德语区硬核雪友原生词汇（如 *Tiefschnee* 野雪粉雪、*Piste* 雪道），提升公信力。</p>
+                                <p class="text-gray-500">[2] 欧盟安全与合规拦截:</p>
+                                <p class="text-gray-300 pl-4 text-red-400/90">【前置风险拦截】已注入欧盟最新滑雪场挂载与隐私合规：禁止在未授权高级雪道使用非安全绳外挂延长杆，视频简介须带有当地免责声明。</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </section>
 
-            <!-- 模块三：效果复盘与长尾归因 -->
-            <section class="space-y-4">
-                <h2 class="text-lg font-bold text-white">📊 模块三：智能效果复盘与长尾归因</h2>
-                <div class="bg-insta-card rounded-lg border border-gray-800 p-6 space-y-6 shadow-xl">
-                    <div class="grid grid-cols-3 gap-4 text-center">
+            <!-- 模块三：效果复盘与素材长尾归因 (增加可视化对比图) -->
+            <section id="metrics" class="space-y-4">
+                <h2 class="text-lg font-bold text-white flex items-center space-x-2">
+                    <span class="h-2 w-2 rounded-full bg-insta-yellow"></span>
+                    <span>📊 模块三：智能复盘与特征长尾归因模型 (MMM)</span>
+                </h2>
+                <div class="bg-insta-card rounded-lg border border-gray-800 p-6 space-y-4 shadow-xl">
+                    <div class="grid grid-cols-3 gap-4 text-center font-mono">
                         <div class="bg-gray-900 p-3 rounded border border-gray-800">
-                            <div class="text-xs text-gray-500 font-mono">预测命中率</div>
-                            <div class="text-lg font-bold text-white mt-1">+28.5%</div>
+                            <div class="text-[10px] text-gray-500">AI预测命中提升</div>
+                            <div class="text-xl font-bold text-white mt-1">+28.5%</div>
                         </div>
                         <div class="bg-gray-900 p-3 rounded border border-gray-800">
-                            <div class="text-xs text-gray-500 font-mono">长尾 ROI (90D)</div>
-                            <div class="text-lg font-bold text-insta-yellow mt-1">2.45x</div>
+                            <div class="text-[10px] text-gray-500">独立站 90D 长尾 ROI</div>
+                            <div class="text-xl font-bold text-insta-yellow mt-1">2.45x</div>
                         </div>
                         <div class="bg-gray-900 p-3 rounded border border-gray-800">
-                            <div class="text-xs text-gray-500 font-mono">素材复用率</div>
-                            <div class="text-lg font-bold text-white mt-1">+35%</div>
+                            <div class="text-[10px] text-gray-500">素材二次广告复用率</div>
+                            <div class="text-xl font-bold text-white mt-1">+35.0%</div>
                         </div>
                     </div>
-                    <div class="bg-gray-900 rounded p-4 border border-gray-800 font-mono text-xs">
-                        <p class="text-gray-500">// AI 素材特征归因矩阵 (Top Features)</p>
-                        <p class="text-gray-300 mt-2">1. "First-Person-View (FPV) at Start" -> 独立站加购率 +18.2%</p>
-                        <p class="text-gray-300">2. "Invisible Selfie Stick Demo" -> 链接点击率 +24.5%</p>
+                    
+                    <!-- 仿真可视化图表柱状图 -->
+                    <div class="bg-gray-900 rounded p-4 border border-gray-800 space-y-3 font-mono text-xs">
+                        <p class="text-gray-500">// 视频帧级视觉特征与独立站加购率(ATC)正相关排名</p>
+                        <div class="space-y-2 pt-2">
+                            <div>
+                                <div class="flex justify-between text-gray-400 mb-1 text-[11px]"><span>1. 视频前3秒出现 FPV 极限开幕</span><span class="text-insta-yellow">+18.2%</span></div>
+                                <div class="w-full bg-gray-800 h-2 rounded"><div class="bg-insta-yellow h-2 rounded" style="width: 85%"></div></div>
+                            </div>
+                            <div>
+                                <div class="flex justify-between text-gray-400 mb-1 text-[11px]"><span>2. 隐形自拍杆转场穿插示范</span><span class="text-white">+14.5%</span></div>
+                                <div class="w-full bg-gray-800 h-2 rounded"><div class="bg-gray-400 h-2 rounded" style="width: 65%"></div></div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </section>
         </div>
-
     </main>
+
+    <!-- 动态交互控制脚本 -->
+    <script>
+        function switchBrief() {
+            const select = document.getElementById('sceneSelect');
+            const content = document.getElementById('briefContent');
+            
+            if (select.value === 'ski') {
+                content.innerHTML = `
+                    <p class="text-insta-yellow font-semibold">// 针对德国雪友的定制化 Brief 方案 (@SkiMax_Ger)</p>
+                    <div class="mt-3 space-y-2">
+                        <p class="text-gray-500">[1] 圈层话术本地化:</p>
+                        <p class="text-gray-300 pl-4">已调取阿尔卑斯滑雪社群语料库，放弃宽泛词汇，自动调整为德语区硬核雪友原生词汇（如 *Tiefschnee* 野雪粉雪、*Piste* 雪道），提升公信力。</p>
+                        <p class="text-gray-500">[2] 欧盟安全与合规拦截:</p>
+                        <p class="text-gray-300 pl-4 text-red-400/90">【前置风险拦截】已注入欧盟最新滑雪场挂载与隐私合规：禁止在未授权高级雪道使用非安全绳外挂延长杆，视频简介须带有当地免责声明。</p>
+                    </div>`;
+            } else if (select.value === 'moto') {
+                content.innerHTML = `
+                    <p class="text-insta-yellow font-semibold">// 针对法国机车党定制化 Brief 方案 (@MotoVlog_FR)</p>
+                    <div class="mt-3 space-y-2">
+                        <p class="text-gray-500">[1] 圈层话术本地化:</p>
+                        <p class="text-gray-300 pl-4">自动注入法国重机山路巡航黑话（如 *Arsouille* 狂飙压弯），摒弃普通说明书式翻译，直击核心重机玩家痛点。</p>
+                        <p class="text-gray-500">[2] 法国公路与行车合规拦截:</p>
+                        <p class="text-gray-300 pl-4 text-red-400/90">【前置风险拦截】依据法国交通安全法规，强制要求博主在展示车载支架吸盘时，必须出示其符合时速 120km/h 工业抗震认证的镜头，禁止引导危险超速拍摄。</p>
+                    </div>`;
+            } else if (select.value === 'surf') {
+                content.innerHTML = `
+                    <p class="text-insta-yellow font-semibold">// 针对北美冲浪圈层定制化 Brief 方案 (@SurfVibe_US)</p>
+                    <div class="mt-3 space-y-2">
+                        <p class="text-gray-500">[1] 圈层话术本地化:</p>
+                        <p class="text-gray-300 pl-4">融入加州西海岸原生尾波冲浪语境（如 *Shredding the wave*），重点描述全景防水及水下色彩一键还原能力。</p>
+                        <p class="text-gray-500">[2] 水上安全与版权规范:</p>
+                        <p class="text-gray-300 pl-4 text-red-400/90">【前置风险拦截】自动注入当地海滩及公共水域拍摄版权规范，脚本中强制要求佩戴防丢浮力棒，杜绝产品意外沉海造成的负面舆情。</p>
+                    </div>`;
+            }
+        }
+    </script>
 </body>
 </html>
