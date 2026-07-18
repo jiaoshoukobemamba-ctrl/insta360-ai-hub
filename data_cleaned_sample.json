@@ -1,0 +1,40 @@
+[
+  {
+    "creator_id": "sample_01",
+    "handle": "@SkiMax_Ger",
+    "region": "EU_DE",
+    "primary_sport": "Snowboarding",
+    "follower_count": 142000,
+    "multimodal_features": {
+      "fpv_opening_detected": true,
+      "invisible_selfie_stick_pass": true,
+      "horizon_lock_active": true,
+      "video_aesthetic_score": 9.2,
+      "chroma_contrast": "high_snow_glare"
+    },
+    "nlp_comment_metrics": {
+      "hardware_inquiry_rate": 0.435,
+      "top_keywords": ["mount", "mount_position", "shutter_speed", "X4_lens"]
+    },
+    "long_tail_potency": "MAX_ASSET"
+  },
+  {
+    "creator_id": "sample_02",
+    "handle": "@MotoVlog_FR",
+    "region": "EU_FR",
+    "primary_sport": "MotoVlog",
+    "follower_count": 89000,
+    "multimodal_features": {
+      "fpv_opening_detected": false,
+      "chin_mount_detected": true,
+      "wind_noise_level": "high_speed_distortion",
+      "video_aesthetic_score": 8.8,
+      "eis_stabilization_pass": true
+    },
+    "nlp_comment_metrics": {
+      "hardware_inquiry_rate": 0.312,
+      "top_keywords": ["mic_adapter", "wind_muff", "audio_setting"]
+    },
+    "long_tail_potency": "MID_REVIEW"
+  }
+]
